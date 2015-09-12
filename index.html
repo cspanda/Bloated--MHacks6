@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>
+      Bloomberg MHacks 6
+    </title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="node_modules/datamaps/dist/datamaps.world.min.js"></script>
+    <script src="scripts.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+  </head>
+  <body>
+    <div id="main-title">
+    BLOATED
+    </div>
+    <div id="main-description">
+    An interactive map of imports and exports using Bloomberg's open data.
+    </div>
+    <br/>
+    <br/>
+    <div id="main-developers">
+      Austin <span style="font-family: MoonBold;">Du</span>
+      <br/>
+      Michael <span style="font-family: MoonBold;">Min</span>
+      <br/>
+      Howard <span style="font-family: MoonBold;">Wu</span>
+      <br/>
+      Robbin <span style="font-family: MoonBold;">Xu</span>
+    </div>
+    <br/>
+    <br/>
+    <div id="begin-btn">
+      <img src="images/click.gif" id="begin-click">
+    </div>
+
+    <div id="yearLabel">Input a Year</div><br>
+    <input type="text" name="year" id="yearTextBox">
+
+    <div id="containerForMap"></div>
+
+  </body>
+</html>
