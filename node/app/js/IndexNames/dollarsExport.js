@@ -1,6 +1,7 @@
-const YEAR = '2012';
-const START = YEAR + '-01-01';
-const END = YEAR + '-12-31';
+const STARTYEAR = '1950';
+const ENDYEAR = '2015'
+const START = STARTYEAR + '-01-01';
+const END = ENDYEAR + '-12-31';
 
 var _ = require('lodash');
 
