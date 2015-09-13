@@ -13,6 +13,8 @@ Tech: <br>
 HTML, CSS, Javascript, JQuery, Datamaps, D3 for frontend <br>
 NodeJS, Firebase for backend
 
+npm install datamaps, firebase, aws-sdk
+
 MHacksVI, Sept 11-13, 2015 <br>
 Made with love by
 <ul>
