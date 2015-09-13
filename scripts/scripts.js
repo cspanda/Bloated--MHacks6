@@ -31,7 +31,7 @@ $(document).ready(function(){
 
 
     resetColours();
-
+    //test
     fetchData();
     $(this).animate({
       opacity: "0"
