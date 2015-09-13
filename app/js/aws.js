@@ -34,7 +34,8 @@ var dollarsIndexImport = 0;
 var dollarsIndexExport = 0;
 
 _.forEach(metricTonnesIndexNamesImport, function(obj) {
-	db.query(obj, function(err, data) {
+  for( var i=0; i<4; i++){
+	db.query(obj[i], function(err, data) {
 	    if (err)
 			console.log(err, err.stack);
 	    else {
@@ -43,10 +44,12 @@ _.forEach(metricTonnesIndexNamesImport, function(obj) {
 	    }
 	    tonnesIndexImport++;
 	});
+}
 });
 
 _.forEach(metricTonnesIndexNamesExport, function(obj) {
-	db.query(obj, function(err, data) {
+  for (var i=0; i<16; i++){
+	db.query(obj[i], function(err, data) {
 	    if (err)
 			console.log(err, err.stack);
 	    else {
@@ -55,10 +58,12 @@ _.forEach(metricTonnesIndexNamesExport, function(obj) {
 	    }
 	    tonnesIndexExport++;
 	});
+}
 });
 
 _.forEach(percentChangeIndexNamesImport, function(obj) {
-	db.query(obj, function(err, data) {
+  for(var i=0; i<15; i++){
+	db.query(obj[i], function(err, data) {
 	    if (err)
 			console.log(err, err.stack);
 	    else {
@@ -67,10 +72,12 @@ _.forEach(percentChangeIndexNamesImport, function(obj) {
 	    }
 	    percentIndexImport++;
 	});
+}
 });
 
 _.forEach(percentChangeIndexNamesExport, function(obj) {
-	db.query(obj, function(err, data) {
+  for(var i=0; i<12;i++){
+  db.query(obj[i], function(err, data) {
 	    if (err)
 			console.log(err, err.stack);
 	    else {
@@ -79,22 +86,27 @@ _.forEach(percentChangeIndexNamesExport, function(obj) {
 	    }
 	    percentIndexExport++;
 	});
+}
 });
 
 _.forEach(dollarIndexNamesImport, function(obj) {
-	db.query(obj, function(err, data) {
-	    if (err)
-			console.log(err, err.stack);
-	    else {
-			console.log(data);
-			dollarsRefImport.child("Index: " + dollarsIndexImport).set(data);
-	    }
-	    dollarsIndexImport++;
-	});
+  for(var i=0; i<3; i++)
+  {
+    db.query(obj[i], function(err, data) {
+      if (err)
+        console.log(err, err.stack);
+      else {
+        console.log(data);
+        dollarsRefImport.child("Index: " + dollarsIndexImport).set(data);
+      }
+      dollarsIndexImport++;
+    });
+  }
 });
 
 _.forEach(dollarIndexNamesExport, function(obj) {
-	db.query(obj, function(err, data) {
+  for(var i=0; i<3; i++){
+	db.query(obj[i], function(err, data) {
 	    if (err)
 			console.log(err, err.stack);
 	    else {
@@ -103,4 +115,5 @@ _.forEach(dollarIndexNamesExport, function(obj) {
 	    }
 	    dollarsIndexExport++;
 	});
+}
 });
