@@ -85,6 +85,18 @@ body{
   height: 150px;
 }
 
+#calendarMonth{
+  position: fixed;
+  bottom: 90px;
+  left: 89px;
+  z-index: 30;
+  opacity: 0;
+  display: block;
+  color: #EEEEEE;
+  font-family: MoonBold;
+  font-size: 20px;
+}
+
 #monthLabel{
   top: -50px;
   font-family: MoonLight;

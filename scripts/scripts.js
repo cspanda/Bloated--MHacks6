@@ -27,15 +27,71 @@ var cdSum = 0;
 var dzSum = 0;
 var saSum = 0;
 
+var dayDelay = 5;
+var stopFastForward;
+var selectedBeginMonth;
+
 $(document).ready(function(){
   $("#goBtnContainer").click(function(){
 
-    circle.animate(0.0, function(){
-      console.log("reset circle");
-    });
+    circle.set(0);
 
     resetColours();
-    //test
+
+    selectedBeginMonth = parseInt($('#monthMenu').find(":selected").val(), 10);
+    console.log(selectedBeginMonth);
+    switch (selectedBeginMonth){
+      case 0:
+        circle.set(0);
+        dayDelay = 75;
+        stopFastForward = 20120101;
+        break;
+      case 1:
+        circle.set(1/12);
+        stopFastForward = 20120201;
+        break;
+      case 2:
+        circle.set(2/12);
+        stopFastForward = 20120301;
+        break;
+      case 3:
+        circle.set(3/12);
+        stopFastForward = 20120401;
+        break;
+      case 4:
+        circle.set(4/12);
+        stopFastForward = 20120501;
+        break;
+      case 5:
+        circle.set(5/12);
+        stopFastForward = 20120601;
+        break;
+      case 6:
+        circle.set(6/12);
+        stopFastForward = 20120701;
+        break;
+      case 7:
+        circle.set(7/12);
+        stopFastForward = 20120801;
+        break;
+      case 8:
+        circle.set(8/12);
+        stopFastForward = 20120901;
+        break;
+      case 9:
+        circle.set(9/12);
+        stopFastForward = 20121001;
+        break;
+      case 10:
+        circle.set(10/12);
+        stopFastForward = 20121101;
+        break;
+      default:
+        circle.set(11/12);
+        stopFastForward = 20121201;
+        break;
+    }
+
     fetchData();
     $(this).animate({
       opacity: "0"
@@ -45,10 +101,12 @@ $(document).ready(function(){
       });
     });
     var endColor = '#6FD57F';
+    var timer = 372 * 75 - 31 * 75 * selectedBeginMonth;
     circle.animate(1.0,{
-      duration: 5000,
+      duration: timer,
       from: {color: endColor},
       to: {color: endColor}
+
     });
 
   });
@@ -60,6 +118,11 @@ $(document).ready(function(){
     }, "slow");
 
     $("#containerForMap").animate({
+      opacity: "1"
+    }, "slow", function(){
+      $(this).css("display","block");
+    });
+    $("#calendarMonth").animate({
       opacity: "1"
     }, "slow", function(){
       $(this).css("display","block");
@@ -80,7 +143,12 @@ $(document).ready(function(){
           trailWidth: 1,
           duration: 2000,
           strokeWidth: 5,
-
+          // text: {
+          //     value: '0'
+          // },
+          // step: function(state, bar) {
+          //     bar.setText((bar.value() * 100).toFixed(0));
+          // },
           // Set default step function for all animate calls
           step: function(state, circle) {
               circle.path.setAttribute('stroke', state.color);
@@ -277,6 +345,48 @@ function fetchData(){
 
 function displayData(parsedData){
   setTimeout(function () {
+
+    var month = Math.floor((minDate/100)%100);
+    console.log(month);
+    switch (month){
+      case 01:
+        $("#calendarMonth").text("Jan");
+        break;
+      case 02:
+        $("#calendarMonth").text("Feb");
+        break;
+      case 03:
+        $("#calendarMonth").text("Mar");
+        break;
+      case 04:
+        $("#calendarMonth").text("Apr");
+        break;
+      case 05:
+        $("#calendarMonth").text("May");
+        break;
+      case 06:
+        $("#calendarMonth").text("Jun");
+        break;
+      case 07:
+        $("#calendarMonth").text("Jul");
+        break;
+      case 08:
+        $("#calendarMonth").text("Aug");
+        break;
+      case 09:
+        $("#calendarMonth").text("Sep");
+        break;
+      case 10:
+        $("#calendarMonth").text("Oct");
+        break;
+      case 11:
+        $("#calendarMonth").text("Nov");
+        break;
+      default:
+        $("#calendarMonth").text("Dec");
+        break;
+    }
+
     var animationQueue = [];
     for (var i = 0; i < parsedData.length; i++){
       if (parsedData[i][0] == minDate){
@@ -569,6 +679,18 @@ function displayData(parsedData){
     if (minDate%100==32){
       minDate=minDate-31+100;
     }
+    if (minDate == stopFastForward){
+      dayDelay = 75;
+      var endColor = '#6FD57F';
+      var timer = 372 * 75 - 31 * 75 * selectedBeginMonth;
+      circle.animate(1.0,{
+        duration: timer,
+        from: {color: endColor},
+        to: {color: endColor}
+      });
+    }else if (minDate < stopFastForward){
+      circle.stop();
+    }
     if (minDate <= endDate) {
        displayData(parsedData);
     }
@@ -582,7 +704,7 @@ function displayData(parsedData){
       });
       reset();
     }
-  }, 75)
+  }, dayDelay)
 }
 
 var delay = ( function() {
