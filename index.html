@@ -9,8 +9,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script src="node_modules/datamaps/dist/datamaps.world.min.js"></script>
-    <script src="scripts.js"></script>
+    <script src = "bower_components/progressbar.js/dist/progressbar.min.js"></script>
+    <script src="scripts/scripts.js"></script>
 
+    <link href="jquery.classycountdown.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
 
   </head>
@@ -38,10 +40,30 @@
       <img src="images/click.gif" id="begin-click">
     </div>
 
-    <div id="yearLabel">Input a Year</div><br>
-    <input type="text" name="year" id="yearTextBox">
-
+    <div id="monthLabel">Select a Beginning Month</div><br>
+    <select id="monthMenu">
+      <option value="0" selected="selected">January</option>
+      <option value="1">February</option>
+      <option value="2">March</option>
+      <option value="3">April</option>
+      <option value="4">May</option>
+      <option value="5">June</option>
+      <option value="6">July</option>
+      <option value="7">August</option>
+      <option value="8">September</option>
+      <option value="9">October</option>
+      <option value="10">November</option>
+      <option value="11">December</option>
+    </select>
+    <div id="goBtnContainer">
+      <div id="goBtn">
+        Go!
+      </div>
+    </div>
     <div id="containerForMap"></div>
+
+    <div id="containerForTimer"></div>
+
 
   </body>
 </html>

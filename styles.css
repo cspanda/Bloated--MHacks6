@@ -74,7 +74,18 @@ body{
   display: none;
 }
 
-#yearLabel{
+#containerForTimer{
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 20;
+  opacity: 0;
+  display: none;
+  width: 150px;
+  height: 150px;
+}
+
+#monthLabel{
   top: -50px;
   font-family: MoonLight;
   color: #EEEEEE;
@@ -82,15 +93,45 @@ body{
   text-align: center;
   position: relative;
   opacity: 0;
+  display: none;
+
 }
 
-#yearTextBox{
+#monthMenu{
+  width: 150px;
   top: -50px;
   font-family: MoonLight;
-  color: #353535;
+  color: #EEEEEE;
   font-size: 15px;
   position: relative;
   opacity: 0;
   display: none;
   margin: 0 auto;
+  background: #353535;
+  border-color: #EEEEEE;
+}
+
+#goBtn{
+  position: relative;
+  font-family: MoonBold;
+  text-align: center;
+  display: table-cell;
+  margin: 0 auto;
+  color: #EEEEEE;
+  font-size: 20px;
+  border-radius: 30px;
+  border: 1px solid #EEEEEE;
+  width: 60px;
+  height: 60px;
+  vertical-align: middle;
+}
+
+#goBtnContainer{
+  position: relative;
+  display: none;
+  margin: 0 auto;
+  left: calc(50% - 30px);
+  top: -10px;
+  opacity: 0;
+  cursor: pointer;
 }
