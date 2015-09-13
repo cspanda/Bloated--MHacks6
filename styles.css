@@ -1,0 +1,137 @@
+body{
+  background-color: #F8DEA3;
+  overflow-y: hidden;
+}
+
+@font-face {
+    font-family: Bebas;
+    src: url("font/BebasNeue.otf");
+}
+
+@font-face {
+  font-family: MoonBold;
+  src: url("font/Moon-Bold.otf");
+}
+
+@font-face {
+  font-family: MoonLight;
+  src: url("font/Moon-Light.otf");
+}
+
+#main-title{
+  top: 15vh;
+  position: relative;
+  font-family: Bebas;
+  color: #E65050;
+  font-size: 15vw;
+  text-align: center;
+}
+
+#main-description{
+  top: 15vh;
+  position: relative;
+  font-family: MoonBold;
+  color: #E65050;
+  font-size: 15px;
+  text-align: center;
+}
+
+#main-developers{
+  top: 15vh;
+  position: relative;
+  font-family: MoonLight;
+  color: #E65050;
+  font-size: 14px;
+  text-align: center;
+}
+
+#begin-btn{
+  position: relative;
+  background: #E65050;
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: 0 auto;
+  top: 20vh;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#begin-click{
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  height: 80%;
+}
+
+#containerForMap{
+  position: relative;
+  top: -30px;
+  height: 85vh;
+  margin: 0 auto;
+  z-index: 10;
+  opacity: 0;
+  display: none;
+}
+
+#containerForTimer{
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 20;
+  opacity: 0;
+  display: none;
+  width: 150px;
+  height: 150px;
+}
+
+#monthLabel{
+  top: -50px;
+  font-family: MoonLight;
+  color: #EEEEEE;
+  font-size: 15px;
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  display: none;
+
+}
+
+#monthMenu{
+  width: 150px;
+  top: -50px;
+  font-family: MoonLight;
+  color: #EEEEEE;
+  font-size: 15px;
+  position: relative;
+  opacity: 0;
+  display: none;
+  margin: 0 auto;
+  background: #353535;
+  border-color: #EEEEEE;
+}
+
+#goBtn{
+  position: relative;
+  font-family: MoonBold;
+  text-align: center;
+  display: table-cell;
+  margin: 0 auto;
+  color: #EEEEEE;
+  font-size: 20px;
+  border-radius: 30px;
+  border: 1px solid #EEEEEE;
+  width: 60px;
+  height: 60px;
+  vertical-align: middle;
+}
+
+#goBtnContainer{
+  position: relative;
+  display: none;
+  margin: 0 auto;
+  left: calc(50% - 30px);
+  top: -10px;
+  opacity: 0;
+  cursor: pointer;
+}
