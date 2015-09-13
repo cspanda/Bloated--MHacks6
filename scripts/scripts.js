@@ -8,6 +8,8 @@ var map;
 var minDate = 20120101;
 var endDate = 20121231;
 
+var circle;
+
 var ruSum = 0;
 var cnSum = 0;
 var bzSum = 0;
@@ -27,6 +29,7 @@ var dzSum = 0;
 $(document).ready(function(){
   $("#goBtnContainer").click(function(){
 
+
     resetColours();
 
     fetchData();
@@ -37,6 +40,13 @@ $(document).ready(function(){
         top: "-=60px"
       });
     });
+    var endColor = '#6FD57F';
+    circle.animate(1.0,{
+      duration: 5000,
+      from: {color: endColor},
+      to: {color: endColor}
+    });
+
   });
 
   $("#begin-btn").click(function(){
@@ -61,28 +71,17 @@ $(document).ready(function(){
       var endColor = '#6FD57F';
 
       var element = document.getElementById('containerForTimer');
-      var circle = new ProgressBar.Circle(element, {
+      circle = new ProgressBar.Circle(element, {
           color: startColor,
           trailColor: '#eee',
           trailWidth: 1,
           duration: 2000,
           strokeWidth: 5,
-          // text: {
-          //     value: '0'
-          // },
-          // step: function(state, bar) {
-          //     bar.setText((bar.value() * 100).toFixed(0));
-          // }
 
           // Set default step function for all animate calls
           step: function(state, circle) {
               circle.path.setAttribute('stroke', state.color);
           }
-      });
-
-      circle.animate(1.0, {
-          from: {color: endColor},
-          to: {color: endColor}
       });
 
     });
@@ -297,7 +296,7 @@ function displayData(parsedData){
               RUS: "rgba(245,245,245,1)"
             });
           }
-          console.log("ru "+colourAdditive);
+          // console.log("ru "+colourAdditive);
         }else if (animationQueue[i][1] == "China"){
           cnSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(cnSum)/230 * 50);
@@ -314,7 +313,7 @@ function displayData(parsedData){
               CHN: "rgba(245,245,245,1)"
             });
           }
-          console.log("cn "+colourAdditive);
+          // console.log("cn "+colourAdditive);
         }else if (animationQueue[i][1] == "Brazil"){
           bzSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(bzSum)/230 * 50);
@@ -331,7 +330,7 @@ function displayData(parsedData){
               BRA: "rgba(245,245,245,1)"
             });
           }
-          console.log("bz "+colourAdditive);
+          // console.log("bz "+colourAdditive);
         }else if (animationQueue[i][1] == "Germany"){
           deSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(deSum)/230 * 50);
@@ -348,7 +347,7 @@ function displayData(parsedData){
               DEU: "rgba(245,245,245,1)"
             });
           }
-          console.log("de "+colourAdditive);
+          // console.log("de "+colourAdditive);
         }else if (animationQueue[i][1] == "US"){
           usSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(usSum)/230 * 50);
@@ -365,7 +364,7 @@ function displayData(parsedData){
               USA: "rgba(245,245,245,1)"
             });
           }
-          console.log("us "+colourAdditive);
+          // console.log("us "+colourAdditive);
         }else if (animationQueue[i][1] == "Greece"){
           geSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(geSum)/230 * 50);
@@ -382,7 +381,7 @@ function displayData(parsedData){
               GRC: "rgba(245,245,245,1)"
             });
           }
-          console.log("ge "+"rgb(255, " + (80 + colourAdditive) + ", " + (80 + colourAdditive) + ")");
+          // console.log("ge "+"rgb(255, " + (80 + colourAdditive) + ", " + (80 + colourAdditive) + ")");
         }else if (animationQueue[i][1] == "Africa"){
           zeSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(zeSum)/230 * 50);
@@ -399,7 +398,7 @@ function displayData(parsedData){
               ZAF: "rgba(245,245,245,1)"
             });
           }
-          console.log("ze "+colourAdditive);
+          // console.log("ze "+colourAdditive);
         }else if (animationQueue[i][1] == "Australia"){
           auSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(auSum)/230 * 50);
@@ -416,7 +415,7 @@ function displayData(parsedData){
               AUS: "rgba(245,245,245,1)"
             });
           }
-          console.log("au "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
+          // console.log("au "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
         }else if (animationQueue[i][1] == "Nigeria"){
           ngSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(ngSum)/230 * 50);
@@ -433,7 +432,7 @@ function displayData(parsedData){
               NGA: "rgba(245,245,245,1)"
             });
           }
-          console.log("ng "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
+          // console.log("ng "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
         }else if (animationQueue[i][1] == "Canada"){
           caSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(caSum)/230 * 50);
@@ -450,7 +449,7 @@ function displayData(parsedData){
               CAN: "rgba(245,245,245,1)"
             });
           }
-          console.log("ca "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
+          // console.log("ca "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
         }else if (animationQueue[i][1] == "Indonesia"){
           idSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(idSum)/230 * 50);
@@ -467,7 +466,7 @@ function displayData(parsedData){
               IDN: "rgba(245,245,245,1)"
             });
           }
-          console.log("id "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
+          // console.log("id "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
         }else if (animationQueue[i][1] == "Greenland"){
           grSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(grSum)/230 * 50);
@@ -484,7 +483,7 @@ function displayData(parsedData){
               GRL: "rgba(245,245,245,1)"
             });
           }
-          console.log("gr "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
+          // console.log("gr "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
         }else if (animationQueue[i][1] == "Egypt"){
           egSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(egSum)/230 * 50);
@@ -501,7 +500,7 @@ function displayData(parsedData){
               EGY: "rgba(245,245,245,1)"
             });
           }
-          console.log("eg "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
+          // console.log("eg "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
         }else if (animationQueue[i][1] == "DRCongo"){
           cdSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(cdSum)/230 * 50);
@@ -518,7 +517,7 @@ function displayData(parsedData){
               COD: "rgba(245,245,245,1)"
             });
           }
-          console.log("cd "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
+          // console.log("cd "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
         }else if (animationQueue[i][1] == "Algeria"){
           dzSum += animationQueue[i][2];
           var colourAdditive = (Math.abs(dzSum)/230 * 50);
@@ -535,7 +534,7 @@ function displayData(parsedData){
               DZA: "rgba(245,245,245,1)"
             });
           }
-          console.log("dz "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
+          // console.log("dz "+"rgb(" + (0 + colourAdditive) + ", 153, "+ (51 + colourAdditive) + ")");
         }
       }
 
@@ -604,4 +603,5 @@ function resetColours(){
     GRL: "#F5F5F5",
     EGY: "#F5F5F5"
   });
+
 }
